@@ -1,4 +1,4 @@
-flask
-numpy
-flask-cors
 fastapi
+uvicorn[standard]
+transformers
+torch
