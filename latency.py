@@ -116,3 +116,10 @@ def get_metrics():
     return jsonify(metrics), 200
 
 # Vercel needs the 'app' object exposed to serve the API function.
+
+
+if __name__ == "__main__":
+    # Run a local development server. Default to port 5001 to avoid macOS port conflicts.
+    port = int(os.environ.get("PORT", 5001))
+    # If FLASK_ENV=development is set, Flask's reloader/debugging will be enabled by the environment.
+    app.run(host="127.0.0.1", port=port)
