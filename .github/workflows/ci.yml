@@ -15,7 +15,7 @@ jobs:
         python-version: [3.9, 3.11]
 
     steps:
-      - name: Checkout repository
+      - name: 24f2006201@ds.study.iitm.ac.in Checkout repository
         uses: actions/checkout@v4
 
       - name: Set up Python
