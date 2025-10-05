@@ -24,12 +24,18 @@ jobs:
           python-version: ${{ matrix.python-version }}
 
       - name: Cache pip
+        id: cache-pip
         uses: actions/cache@v4
         with:
           path: ~/.cache/pip
-          key: ${{ runner.os }}-pip-${{ hashFiles('**/requirements.txt') }}
+          # Fixed cache key per request to prime/verify cache
+          key: cache-421e06b
           restore-keys: |
-            ${{ runner.os }}-pip-
+            cache-421e06b
+
+      - name: prime-cache-421e06b
+        run: |
+          echo "cache-hit=${{ steps.cache-pip.outputs.cache-hit }}"
 
       - name: Install dependencies
         run: |
